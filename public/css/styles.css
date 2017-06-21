@@ -1,0 +1,155 @@
+@charset "utf-8";
+body {
+	font-size: 16px;
+	font-family: Verdana, sans-serif;
+}
+.container {
+	width: 980px;
+	margin: 80px auto 10px;
+}
+#name {
+	width: 18%;
+}
+#alc {
+	width: 13%;
+}
+#style {
+	width: 16%;
+}
+#country {
+	width: 16%;
+}
+#score {
+	width: 12%;
+}
+#comment {
+	width: 25%;
+}
+#open-new {
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #FFC107;
+	color: #fff;
+	border-radius: 5px;
+	padding: 7px;
+	text-align: center;
+	float: right;
+	margin-bottom: 14px;
+	cursor: pointer;
+}
+#mask {
+	background: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+#modal-new, #modal-update {
+	background: #fff;
+	width: 400px;
+	padding: 15px;
+	border-radius: 4px;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transition: .8s;
+	z-index: 2;
+}
+input[type="text"], input[type="number"], textarea {
+	display: block;
+	font-size: 20px;
+	border-radius: 5px;
+	border: 1px solid #eee;
+	margin-bottom: 22px;
+	padding: 5px;
+}
+input[type="text"], input[type="number"] {
+	width: 82%;
+}
+textarea {
+	width: 95%;
+	height: 70px;
+}
+input[type="submit"] {
+	float: right;
+	width: 20%;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	background: #1E88E5;
+	padding: 6px;
+	margin-right: 8px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+#close-new, #close-update {
+	position: absolute;
+	top: 3px;
+	right: 7px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#mask.hidden {
+	display: none;
+}
+#modal-new.hidden {
+	transform: translate(0, -700px);
+}
+#modal-update.hidden {
+	transform: translate(-1500px, 0);
+}
+table {
+	width: 100%;
+	margin: 20px auto;
+	border-collapse: collapse;
+}
+th, td {
+	box-sizing: border-box;
+	border: 1px solid #e9eae8;
+	padding: 12px 24px;
+	user-select: none;
+}
+tbody tr:nth-child(odd) {
+  background: #f8f8f8;
+}
+.right {
+	text-align: right;
+}
+th {
+	cursor: pointer;
+}
+th:after {
+  content: '\f0dc';
+  font-family: FontAwesome;
+  font-size: 12px;
+  color: #ccc;
+  margin-left: 5px;
+  font-weight: normal;
+}
+th.asc:after {
+  content: '\f0de';
+  font-family: FontAwesome;
+  color: #000;
+}
+th.desc:after {
+  content: '\f0dd';
+  font-family: FontAwesome;
+  color: #000;
+}
+td div {
+	float: right;
+	margin-top: 4px;
+}
+.fa {
+	margin-left: 5px;
+	cursor: pointer;
+}

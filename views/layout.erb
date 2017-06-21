@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My Beer List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <script src="/js/main.js">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  	$('.fa-trash-o').click(function() {
+      var el = $(this).parents("tr");
+      if (confirm('Are you sure?')) {
+        $.post('/delete', {
+          id: el.data('id')
+        }, function() {
+          el.fadeOut(500);
+        });
+      }
+    });
+
+    $('.open-update').click(function() {
+      $('#modal-update').removeClass('hidden');
+      $('#mask').removeClass('hidden');
+      var tr = $(this).parents("tr");
+      var id = tr.data('id');
+      $("#form-update [type=hidden]").val(id);
+      // $("input[name='name']").val(name);
+    })
+  </script>
+</body>
+</html>

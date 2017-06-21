@@ -1,0 +1,102 @@
+<div id="open-new">ビール追加</div>
+<div id="mask" class="hidden"></div>
+<div id="modal-new" class="hidden">
+  <div id="close-new">×</div>
+	<h2 style="color:#FDD835;">ビール新規情報</h2>
+	<form method="post" action="/new">
+	  <input type="text" name="name" placeholder="名前(name)  例: サッポロ黒ラベル">
+	  <input type="text" name="alc" placeholder="アルコール(alcohol)  例: 5.0">
+	  <input type="text" name="style" placeholder="スタイル(style)  例: ラガー">
+	  <input type="text" name="country" placeholder="産地(made in)  例: 日本">
+	  <input type="number" name="score" max="100" min="0" placeholder="点数(total score)  例: 90(0~100)">
+	  <textarea name="comment" placeholder="一言コメント(comment)"></textarea>
+	  <input type="submit" value="追加">
+	</form>
+</div>
+<div id="modal-update" class="hidden">
+	<div id="close-update">×</div>
+	<h2 style="color:#FDD835;">ビール更新情報</h2>
+	<form id="form-update" method="post" action="/update">
+	  <input type="hidden" name="id">
+	  <input type="text" name="name">
+	  <input type="text" name="alc">
+	  <input type="text" name="style">
+	  <input type="text" name="country">
+	  <input type="number" name="score" max="100" min="0">
+	  <textarea name="comment"></textarea>
+	  <input type="submit" value="追加">
+	</form>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th data-type="string" id="name">Name</th>
+      <th data-type="number" id="alc">Alc(%)</th>
+      <th data-type="string" id="style">Style</th>
+      <th data-type="string" id="country">From</th>
+      <th data-type="number" id="score">Score</th>
+      <th data-type="comment" id="comment">Comment</th>
+    </tr>
+  </thead>
+  <tbody><!-- 
+    <tr>
+    	<td>GUINNESS</td>
+    	<td class="num">4.5</td>
+    	<td>STOUT</td>
+    	<td>Ireland</td>
+    	<td class="num">2</td>
+    	<td>super populer beer!</td>
+    </tr>
+    <tr>
+    	<td>Punk IPA</td>
+    	<td class="num">12</td>
+    	<td>IPA</td>
+    	<td>England</td>
+    	<td class="num">4</td>
+    	<td>super populer beer!</td>
+    </tr>
+    <tr>
+    	<td>punk IPA</td>
+    	<td class="num">5.6</td>
+    	<td>ipa</td>
+    	<td>england</td>
+    	<td class="num">4</td>
+    	<td>super populer beer!</td>
+    </tr>
+    <tr>
+    	<td>Yona yona ale</td>
+    	<td class="num">4.5</td>
+    	<td>PALE ALE</td>
+    	<td>Japan</td>
+    	<td class="num">3</td>
+    	<td>super populer beer!</td>
+    </tr>
+    <tr>
+    	<td>SAPPORO</td>
+    	<td class="num">5.0</td>
+    	<td>LAGER</td>
+    	<td>japan</td>
+    	<td class="num">2</td>
+    	<td>super populer beer!</td>
+    </tr>
+    <tr>
+    	<td>鎌倉ビール</td>
+    	<td class="num">4.5</td>
+    	<td>Lager</td>
+    	<td>Japan Kamakura</td>
+    	<td class="num">68</td>
+    	<td>local beer!</td>
+    </tr> -->
+    <% @beers.each do |beer| %>
+    <tr data-id="<%= beer.id %>">
+      <td><%= h beer.name %></td>
+      <td class="right"><%= beer.alc %></td>
+      <td><%= h beer.style %></td>
+      <td><%= h beer.country %></td>
+      <td class="right"><%= h beer.score %></td>
+      <td><%= h beer.comment %><div><i class="fa fa-pencil open-update" aria-hidden="true"></i><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
